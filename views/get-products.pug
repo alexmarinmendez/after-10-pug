@@ -1,0 +1,22 @@
+doctype html
+html
+    include includes/head.pug
+    body 
+        if products.length
+            table.table
+                thead
+                    tr
+                    th(scope='col') Product name
+                    th(scope='col') Price
+                    th(scope='col') Thumbnail
+                tbody.table-group-divider
+                    each item in products
+                        tr
+                            td= item.title
+                            td= item.price
+                            td
+                                img(src=item.thumbnail, width="50")
+        else
+            p There is no data to show
+        a.btn.btn-success(href='/') Create a product
+        include includes/foot.pug
